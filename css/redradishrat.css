@@ -77,7 +77,7 @@
     color: #a16764;
   }
   #mainNav.navbar-shrink .nav-link:active {
-    color: #467370;
+    color: #734646;
   }
   #mainNav.navbar-shrink .nav-link.active {
     color: #a16764;
@@ -163,7 +163,7 @@
 }
 
 .btn-primary:active {
-  background-color: #467370 !important;
+  background-color: #734646 !important;
 }
 
 .about-section {
