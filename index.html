@@ -143,8 +143,8 @@
           <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
           <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
 
-          <form class="form-inline d-flex">
-            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
+          <form name="submit-to-google-sheet" class="form-inline d-flex">
+            <input name="email" type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address..." required>
             <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
           </form>
 
@@ -227,6 +227,22 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/redradishrat.js"></script>
+
+  <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+
+  <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyyeTX_aHlG2GogBpMxs3u00LgPaNGxsbpGsnM2jiRmYR7C3TU/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+  </script>
 
 </body>
 
